@@ -10,6 +10,8 @@
 
 \input{math-ops.tex}
 
+\input{tikz-config.tex}
+
 \input{theorem-config.tex}
 
 
@@ -26,7 +28,7 @@
 
 \section{Introduction to Graphs}
 
-\begin{frame}
+\begin{frame}{Undirected Simple Graph}
     An \Keyword{undirected simple graph} $G$ is a two-tuple
     \begin{equation}
         G = (V, E)
@@ -34,7 +36,7 @@
     Where
     \begin{enumerate}
         \item $V$ is the set of \Keyword{vertices} (or \Keyword{nodes}, \Keyword{points})
-        \item $E$ is the set of \Keyword{edges} (or \Keyword{links}) where each \Keyword{edge} connects two \Keyword{vertices}.\\
+        \item $E$ is the set of \Keyword{edges} (or \Keyword{links}) where each \Keyword{edge} connects two \Keyword{vertices}
         \begin{itemize}
             \item Not allowing \textit{self-loops}:
             \begin{equation}
@@ -46,6 +48,86 @@
             \end{equation}
         \end{itemize}
     \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    No \textit{self-loops}
+    \begin{figure}[H]
+        \centering
+        \begin{equation*}
+            \psmatrix[colsep=2em, rowsep=1em, mnode=circle, linewidth=0.5pt]
+                x & y
+                \ncline{-}{1, 1}{1, 2}
+            \endpsmatrix
+        \end{equation*}
+    \end{figure}
+    
+    Allowing \textit{self-loops}
+    \begin{figure}[H]
+        \centering
+        \begin{equation*}
+            \psmatrix[colsep=2em, rowsep=1em, mnode=circle, linewidth=0.5pt]
+                x & y
+                \ncline{-}{1, 1}{1, 2}
+                \nccircle{-}{1, 2}{1em}
+            \endpsmatrix
+        \end{equation*}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Directed Simple Graph}
+    A \Keyword{directed simple graph} $G$ is a \textit{graph} in which \textit{edges} have orientation
+    \begin{equation}
+        G = (V, A)
+    \end{equation}
+    Where
+    \begin{enumerate}
+        \item $V$ is the set of \Keyword{vertices} (or \Keyword{nodes}, \Keyword{points})
+        \item $A$ is the set of \Keyword{directed edges} where each \Keyword{edge} connects two vertices with a \Keyword{direction}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Directed Edge}
+    In a \Keyword{directed simple graph}, each \Keyword{edge} $(x, y)$ connects \textit{vertex} $x \to y$.
+    \begin{figure}[H]
+        \centering
+        \begin{equation*}
+            \psmatrix[colsep=2em, rowsep=1em, mnode=circle, linewidth=0.5pt]
+                x & y
+                \ncline{->}{1, 1}{1, 2}
+            \endpsmatrix
+        \end{equation*}
+    \end{figure}
+    For the \Keyword{directed edge} $(x, y)$ from $x \to y$
+    \begin{itemize}
+        \item $x$ is the \Keyword{tail} of the edge
+        \item $y$ is the \Keyword{head} of the edge
+    \end{itemize}
+    
+    The \Keyword{edge} $(y, x)$ is the \Keyword{inverted edge} of $(x, y)$
+    \begin{figure}[H]
+        \centering
+        \begin{equation*}
+            \psmatrix[colsep=2em, rowsep=1em, mnode=circle, linewidth=0.5pt]
+                x & y
+                \ncline{->}{1, 2}{1, 1}
+            \endpsmatrix
+        \end{equation*}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Directed Edge}
+    It is also possible for a \textit{loop} (or \textit{cycle}) to form between nodes
+    \begin{figure}[H]
+        \centering
+        \begin{equation*}
+            \psmatrix[colsep=2em, rowsep=1em, mnode=circle, linewidth=0.5pt]
+                x & y
+                \ncarc[arcangle=45]{->}{1, 1}{1, 2}
+                \ncarc[arcangle=45]{->}{1, 2}{1, 1}
+            \endpsmatrix
+        \end{equation*}
+    \end{figure}
 \end{frame}
 
 \end{document}
