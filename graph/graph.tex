@@ -1,0 +1,51 @@
+\documentclass{beamer}
+
+\input{beamer-config.tex}
+
+\input{required-packages.tex}
+
+\input{font-config.tex}
+
+\input{custom-commands.tex}
+
+\input{math-ops.tex}
+
+\input{theorem-config.tex}
+
+
+\title{
+    \Subtitle{COMP0005 Algorithms}  \\
+    {\huge Graphs}                  \\
+}
+\author{Jieyou Xu}
+\date{\today}
+
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Introduction to Graphs}
+
+\begin{frame}
+    An \Keyword{undirected simple graph} $G$ is a two-tuple
+    \begin{equation}
+        G = (V, E)
+    \end{equation}
+    Where
+    \begin{enumerate}
+        \item $V$ is the set of \Keyword{vertices} (or \Keyword{nodes}, \Keyword{points})
+        \item $E$ is the set of \Keyword{edges} (or \Keyword{links}) where each \Keyword{edge} connects two \Keyword{vertices}.\\
+        \begin{itemize}
+            \item Not allowing \textit{self-loops}:
+            \begin{equation}
+                E \subseteq \set{(x, y) \mid (x, y) \in V^2 \land x \ne y}
+            \end{equation}
+            \item Allowing \textit{self-loops}:
+            \begin{equation}
+                E \subseteq \set{(x, y) \mid (x, y) \in V^2}
+            \end{equation}
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,33 @@
+\usefonttheme{serif}
+
+\usepackage{tikz}
+\usebackgroundtemplate{
+    \begin{tikzpicture}
+        \shade[top color=blue!10, bottom color=white] 
+            (0,0) 
+            rectangle 
+            (\paperwidth, \paperheight/6);
+    \end{tikzpicture}
+}
+
+% Clear Beamer Footer
+\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+    \begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,center]{framenumber}%
+        \usebeamerfont{framenumber}\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}}%
+  \vskip10pt%
+}
+
+% Table of Contents at beginning of Section
+\AtBeginSection[]
+{
+    \begin{frame}{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
